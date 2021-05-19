@@ -1,0 +1,190 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<style>
+tr{
+
+    font-size:12px !important;
+    padding: 0px !important;
+}
+td{
+    font-size:12px !important;
+}
+
+a{
+    font-size:12px !important;
+    height:100%;
+}
+i{
+    font-size:12px !important;
+    height:100%;
+    color:white;
+}
+</style>
+                
+    <main>
+        <div class="container-fluid">
+            
+            <div class="breadcrumb">
+            <h4 class=""><i class="fa fa-home" aria-hidden="true"></i> / <small>Home</small></h4> 
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body">
+                        <p>New Percels</p>
+                        <h2>{{parcels}}</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-warning text-white mb-4">
+                        <div class="card-body">
+                         <p>New Couriers</p>
+                        <h2>{{ couriers }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body">
+                         <p>Texted Customers</p>
+                        <h2>{{ countPayments }}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body">
+                         <p>Delivered Items</p>
+                        <h2>{{ countPayments }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                   
+                    All Percels and Couriers
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-hover table-condensed table-striped">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Item Type</th>
+                                    <th>Item Name</th>
+                                    <th>Send From</th>
+                                    <th>Sender Name</th>
+                                    <th>Sender Phone</th>
+                                    <th>Destination</th>
+                                    <th>Destination Staff</th>
+                                    <th>Dest Staff Phone</th>
+                                    <th>Receiver Name</th>
+                                    <th>Receiver Phone</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Item Type</th>
+                                    <th>Item Name</th>
+                                    <th>Send From</th>
+                                    <th>Sender Name</th>
+                                    <th>Sender Phone</th>
+                                    <th>Destination</th>
+                                    <th>Destination Staff</th>
+                                    <th>Dest Staff Phone</th>
+                                    <th>Receiver Name</th>
+                                    <th>Receiver Phone</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                         
+                               
+                            
+
+                                   {% for data in dataItems %}
+                                <tr>
+                                    <td>{{ data.itemType }}</td>
+                                    <td>{{ data.itemName }}</td>
+                                    <td>{{ data.sendFrom }}</td>
+                                    <td>{{ data.senderName }}</td>
+                                    <td>{{ data.senderPhone }}</td>
+                                    <td>{{ data.destination }}</td>
+                                    <td>{{ data.destinationStaff }}</td>
+                                    <td>{{ data.destinationStaffPhone }}</td>
+                                    <td>{{ data.receiverName }}</td>
+                                    <td>{{ data.receiverPhone }}</td>
+                                    <td>{{ data.status }}</td>
+                                    <td>
+                                    <a class="btn btn-sm btn-block btn-warning"> <i class="fa fa-envelope" aria-hidden="true"></i>Send SMS</a></td>
+                                </tr>
+                                {% endfor %}
+                            
+                        
+                        
+
+
+                               
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                
+            </div>
+            </div>
+        </div>
+    </main>
+                
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="/static/assets/demo/chart-area-demo.js"></script>
+    <script src="/static/assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    {% comment %} <script src="/static/assets/demo/datatables-demo.js"></script> {% endcomment %}
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+
+    <script type="text/javascript">
+         $(document).ready(function() {
+    $('#dataTable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );      
+
+    </script>
+
+{% endblock javascripts %}

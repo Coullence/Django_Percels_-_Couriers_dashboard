@@ -1,0 +1,97 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %} New Item {% endblock %} 
+{%load crispy_forms_tags %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<style>
+.card{
+    padding: 10px !important;
+}
+</style>
+                
+    <main>
+        <div class="container-fluid">
+
+            <div class="breadcrumb">
+            <h4 class="mt-4"><i class="fa fa-home" aria-hidden="true"></i> / <small>Custom SMS</small></h4> 
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-2"></div>  
+                <div class="col-md-8 card">
+                  <form method="post">
+                            {% csrf_token %}
+
+                            <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.itemType|as_crispy_field }}
+
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                            </div>
+                            </div>
+
+                            <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.itemName|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.sendFrom|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.stationName|as_crispy_field }}
+                            </div>
+                            </div>
+
+                            <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.senderName|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.senderPhone|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.destination|as_crispy_field }}
+                            </div>
+                            </div>
+
+                            <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.destinationStaff|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.destinationStaffPhone|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.receiverName|as_crispy_field }}
+                            </div>
+                            </div>
+
+                            <div class="form-row">
+                            <div class="form-group col-md-4 mb-0">
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                                {{ item_Form.receiverPhone|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4 mb-0">
+                            </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+                <div class="col-md-2"></div>                
+            </div>
+        </div>
+    </main>
+                
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

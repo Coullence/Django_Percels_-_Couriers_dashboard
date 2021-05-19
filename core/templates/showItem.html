@@ -1,0 +1,113 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %} New Item {% endblock %} 
+{%load crispy_forms_tags %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<style>
+.card{
+    padding: 10px !important;
+}
+label{
+    color:skyblue;
+}
+.btn{
+    color:white !important;
+}
+</style>
+                
+    <main>
+        <div class="container-fluid">
+
+            <h3 class="mt-4"><i class="fa fa-home" aria-hidden="true"></i> > <small>Custom SMS</small></h3> 
+            <hr>
+            <div class="row">
+                <div class="col-md-2"></div>  
+                <div class="col-md-8 card">
+                <div class="row">
+                    <div class="col-md-4">
+                    <label>Item Name</label><br>
+                    {{ item.itemName}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Send From</label><br>
+                    {{ item.sendFrom}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>From Station</label><br>
+                    {{ item.stationName}}
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">
+                    <label>Sender Name</label><br>
+                    {{ item.senderName}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Send Phone</label><br>
+                    {{ item.senderPhone}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Destination</label><br>
+                    {{ item.destination}}
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">
+                    <label>Destination Staff</label><br>
+                    {{ item.destinationStaff}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Send From</label><br>
+                    {{ item.sendFrom}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Destination Staff Phone</label><br>
+                    {{ item.destinationStaffPhone}}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                    <label>Receiver Name</label><br>
+                    {{ item.receiverName}}
+                    </div>
+                    <div class="col-md-4">
+                    <label>Receiver Phone</label><br>
+                    {{ item.receiverPhone}}
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+                <hr>
+                     <div class="row">
+                    <div class="col-md-4">
+
+                <a class="btn btn-sm btn-block btn-success" href="/getAllItems.html">Back</a>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+
+                <a class="btn btn-sm btn-block btn-primary" href="/editItem/{{ item.id }}/">Edit</a>
+                    </div>
+                </div>
+              
+                </div>
+                <div class="col-md-2"></div>                
+            </div>
+        </div>
+    </main>
+                
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

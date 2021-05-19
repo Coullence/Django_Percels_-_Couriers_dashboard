@@ -1,0 +1,105 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<style>
+tr{
+
+    font-size:12px !important;
+    padding: 0px !important;
+}
+td{
+    font-size:12px !important;
+}
+
+a{
+    font-size:12px !important;
+    height:100%;
+}
+.pull-right{
+    float:right;
+    text-align:right;
+}
+</style>
+                
+    <main>
+        <div class="container-fluid">
+
+            <div class="breadcrumb">
+            <h4 class=""><i class="fa fa-home" aria-hidden="true"></i> / <small>Items</small>/ <small>Category</small> /<small>Courires</small> </h4> 
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Properties
+
+
+                    <a class="pull-right btn btn-success btn-sm"><i class="fas fa-plus mr-1"></i>Station</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <th>Location</th>
+                                    <th>Staff</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Station</th>
+                                    <th>Location</th>
+                                    <th>Staff</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+
+                                {% for data in dataSms %}
+                                <tr>
+                                    <td>{{ data.phone }}</td>
+                                    <td>{{ data.sms }}</td>
+                                    <td>{{ data.code }}</td>
+                                    <td>0726634786</td>
+                                    <td>Active</td>
+                                    <td>
+                                    <a class="btn btn-sm btn-primary"> <i class="fa fa-external-link-alt" aria-hidden="true"></i></a>
+                                    <a class="btn btn-sm btn-danger"> 
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                   </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+                
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="/static/assets/demo/chart-area-demo.js"></script>
+    <script src="/static/assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="/static/assets/demo/datatables-demo.js"></script>
+
+{% endblock javascripts %}

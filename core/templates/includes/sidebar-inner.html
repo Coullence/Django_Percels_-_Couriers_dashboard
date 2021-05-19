@@ -1,0 +1,70 @@
+
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <a class="nav-link {% if 'index' in segment %} active {% endif %}" href="/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Operations</div>
+                    
+                            <a class="btn btn-info btn-sm " href="/createItemForm/">+ Add Item</a>
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manageProperties" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                       Manage Items
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="manageProperties" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/createItemForm/">+ Add Item</a>
+                            <a class="nav-link" href="/getAllItems.html">All Items</a>
+                            <a class="nav-link" href="/getCouriers.html">All Couriers</a>
+                            <a class="nav-link" href="/getPercels.html">All Percels</a>
+                            <a class="nav-link" href="/getTextedCustomers.html">Texted Customers</a>
+                        </nav>
+                    </div>
+
+
+                        
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manageTenants" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fa fa-car" aria-hidden="true"></i></div>
+                        Manage Stations
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="manageTenants" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/createStationForm/">+ Add Station</a>
+                            <a class="nav-link" href="/getStations.html">Stations</a>
+                            <a class="nav-link" href="/getPricingGuage.html">Pricing Guage</a>
+                        </nav>
+                    </div>               
+
+                    {% comment %} <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#managePayments" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fa fa-currency" aria-hidden="true"></i></div>
+                        Manage Payments
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="managePayments" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/createPayment.html">Payments</a>
+                            <a class="nav-link" href="/layout-sidenav-light.html">Balance</a>
+                            <a class="nav-link" href="/layout-sidenav-light.html">Default Payments</a>
+                        </nav>
+                    </div> {% endcomment %}
+
+                        
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manageBulkSMS" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                      Manage Bulk SMS
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="manageBulkSMS"  aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/createSMSForm/">+ Custom SMS</a>
+                            <a class="nav-link" href="/getSMSlogs.html">Bulk SMS logs</a>
+
+                   
+                        </nav>
+                    </div>
